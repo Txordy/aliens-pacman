@@ -1,0 +1,255 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --bg-color: #444;
+    --wall-color: #000;
+    --floor-color: #ddd;
+    --alien-color: #58f03e;
+    --alien-shadow: rgba(88, 240, 62, 0.4);
+    --dot-color: #fff;
+    --pill-color: #fff;
+    --highlight-color: #58f03e;
+    --highlight-color-darker: #4ec539;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-color);
+    background-size: cover;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    color: var(--highlight-color);
+}
+
+#game-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    button{
+        margin-top: 20px;
+        &:last-of-type {
+            margin-top: 75px;
+        }
+    }
+}
+
+#instructions-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    li {
+        color: white;
+    }
+}
+
+#game {
+    position: relative;
+    display: inline-grid;
+    background: var(--bg-color);
+}
+
+.game-status {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 150px;
+    border: 5px var(--highlight-color) solid;
+    background: var(--black);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+#score {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 200px;
+    height: 50px;
+    border: 5px var(--highlight-color) solid;
+    margin-top: 20px;
+    position: relative;
+
+    .progress-bar {
+        height:50px;
+        box-sizing: border-box;
+        background-color: var(--highlight-color);
+    }
+
+    .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--black);
+    }
+}
+
+#start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    width: 200px;
+    padding: 1rem;
+    background-color: var(--highlight-color);
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--highlight-color-darker);
+    }
+}
+
+.hide {
+    display: none!important;
+}
+
+.square {
+    display: block;
+    background: var(--bg-color)
+}
+
+.blank {
+    background: var(--bg-color);
+}
+
+.wall {
+    border: 1px solid var(--wall-color);
+    background-color: var(--wall-color);
+}
+
+.dot {
+    background: var(--dot-color);
+    border: 8px solid var(--bg-color);
+    border-radius: 50%;
+}
+
+.pill {
+    background: var(--pill-color);
+    border: 5px solid var(--bg-color);
+    border-radius: 50%;
+}
+
+.alien {
+    position: relative;
+    border: none;
+    width: 15px !important;
+    height: 15px !important;
+    margin: auto;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 10px;
+    -webkit-box-shadow: 0 0 5px 5px var(--alien-shadow);
+    box-shadow: 0 0 5px 5px var(--alien-shadow);
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: var(--black);
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        top: 8px;
+        left: 3px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: var(--black);
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        top: 3px;
+        left: 8px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+.scared {
+    background: var(--alien-color)!important;
+}
+
+.alien_1 {
+    background: red;
+}
+
+.alien_2 {
+    background: pink;
+}
+
+.alien_3 {
+    background: cyan;
+}
+
+.alien_4 {
+    background: orange;
+}
+
+.pacman {
+    background: yellow;
+    border: none;
+    border-radius: 50%;
+    clip-path: polygon(0 0,
+            20px 0,
+            20px -5px,
+            8px 10px,
+            20px 25px,
+            20px 20px,
+            0 20px);
+    animation: chew 0.2s linear forwards infinite;
+}
+
+@keyframes chew {
+    50% {
+        clip-path: polygon(0 0,
+                20px 0,
+                20px 10px,
+                8px 10px,
+                20px 10px,
+                20px 20px,
+                0 20px);
+    }
+}

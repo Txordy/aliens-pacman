@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Aliens Pacman</title>
+  </head>
+  <body>
+    <div id="game-wrapper" class="hide">
+      <div id="game"></div>
+      <div id="score" class="hide"></div>
+      <button id="start-button">Start Game</button>
+    </div>
+    <div id="home-wrapper">
+        <h1>ALIEN Pac-Man</h1>
+        <button id="play-easy-button">EASY</button>
+        <button id="play-medium-button">MEDIUM</button>
+        <button id="play-hard-button">HARD</button>
+        <button id="instructions-button">INSTRUCTIONS</button>
+    </div>
+    <div id="instructions-wrapper" class="hide">
+        <h1>INSTRUCTIONS</h1><br/><br/>
+        <ol>
+            <li>Move with WASD or keyboard arrows.</li><br/><br/><br/>
+            <li>Avoid being touched by the aliens.</li><br/><br/><br/>
+            <li>Collect all the dots from the map.</li><br/><br/>
+        </ol>
+        <button id="home-button-from-instructions">BACK</button>
+    </div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
